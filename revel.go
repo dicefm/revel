@@ -257,6 +257,11 @@ func findSrcPaths(importPath string) (revelSourcePath, appSourcePath string) {
 		goroot  = build.Default.GOROOT
 	)
 
+	wd, err := os.Getwd()
+	if err != nil {
+		ERROR.Fatalln("Unable to get current working directory", err)
+	}
+
 	if len(gopaths) == 0 {
 		ERROR.Fatalln("GOPATH environment variable is not set. ",
 			"Please refer to http://golang.org/doc/code.html to configure your Go environment.")
@@ -268,12 +273,12 @@ func findSrcPaths(importPath string) (revelSourcePath, appSourcePath string) {
 			gopaths, goroot)
 	}
 
-	appPkg, err := build.Import(importPath, "", build.FindOnly)
+	appPkg, err := build.Import(importPath, wd, build.FindOnly|build.AllowVendor)
 	if err != nil {
 		ERROR.Fatalln("Failed to import", importPath, "with error:", err)
 	}
 
-	revelPkg, err := build.Import(REVEL_IMPORT_PATH, "", build.FindOnly)
+	revelPkg, err := build.Import(REVEL_IMPORT_PATH, wd, build.FindOnly|build.AllowVendor)
 	if err != nil {
 		ERROR.Fatalln("Failed to find Revel with error:", err)
 	}
@@ -307,7 +312,12 @@ func ResolveImportPath(importPath string) (string, error) {
 		return path.Join(SourcePath, importPath), nil
 	}
 
-	modPkg, err := build.Import(importPath, "", build.FindOnly)
+	wd, err := os.Getwd()
+	if err != nil {
+		return "", err
+	}
+
+	modPkg, err := build.Import(importPath, wd, build.FindOnly|build.AllowVendor)
 	if err != nil {
 		return "", err
 	}
