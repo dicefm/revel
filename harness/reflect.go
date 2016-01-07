@@ -291,7 +291,7 @@ func addImports(imports map[string]string, decl ast.Decl, srcDir string) {
 		// 2. Exempt the standard library; their directories always match the package name.
 		// 3. Can use build.FindOnly and then use parser.ParseDir with mode PackageClauseOnly
 		if pkgAlias == "" {
-			pkg, err := build.Import(fullPath, srcDir, 0)
+			pkg, err := build.Import(fullPath, srcDir, build.AllowVendor)
 			if err != nil {
 				// We expect this to happen for apps using reverse routing (since we
 				// have not yet generated the routes).  Don't log that.
