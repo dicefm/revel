@@ -758,11 +758,21 @@ func IsBuiltinType(name string) bool {
 	return ok
 }
 
+var go15vendorexperiment = os.Getenv("GO15VENDOREXPERIMENT") != "0"
+
 func importPathFromPath(root string) string {
 	for _, gopath := range filepath.SplitList(build.Default.GOPATH) {
 		srcPath := filepath.Join(gopath, "src")
 		if strings.HasPrefix(root, srcPath) {
-			return filepath.ToSlash(root[len(srcPath)+1:])
+			var srcRootIndex = len(srcPath) + 1
+
+			if go15vendorexperiment {
+				vendorIndex := strings.Index(root, "vendor")
+				if vendorIndex >= 0 {
+					srcRootIndex = vendorIndex + 7
+				}
+			}
+			return filepath.ToSlash(root[srcRootIndex:])
 		}
 	}
 
