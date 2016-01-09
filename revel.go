@@ -129,8 +129,8 @@ func Init(mode, importPath, srcPath string) {
 		packaged = true
 	}
 
-	RevelPath = path.Join(revelSourcePath, filepath.FromSlash(REVEL_IMPORT_PATH))
-	BasePath = path.Join(SourcePath, filepath.FromSlash(importPath))
+	RevelPath = revelSourcePath
+	BasePath = SourcePath
 	AppPath = path.Join(BasePath, "app")
 	ViewsPath = path.Join(AppPath, "views")
 
@@ -283,7 +283,7 @@ func findSrcPaths(importPath string) (revelSourcePath, appSourcePath string) {
 		ERROR.Fatalln("Failed to find Revel with error:", err)
 	}
 
-	return revelPkg.SrcRoot, appPkg.SrcRoot
+	return revelPkg.Dir, appPkg.Dir
 }
 
 type Module struct {
