@@ -767,8 +767,7 @@ func importPathFromPath(root string) string {
 			var srcRootIndex = len(srcPath) + 1
 
 			if go15vendorexperiment {
-				vendorIndex := strings.Index(root, "vendor")
-				if vendorIndex >= 0 {
+				if vendorIndex := strings.Index(root, "vendor"); vendorIndex >= 0 {
 					srcRootIndex = vendorIndex + 7
 				}
 			}
