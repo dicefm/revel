@@ -3,9 +3,9 @@ package controllers
 import (
 	"golang.org/x/crypto/bcrypt"
 	"fmt"
-	"github.com/revel/revel"
-	"github.com/revel/revel/samples/booking/app/models"
-	"github.com/revel/revel/samples/booking/app/routes"
+	"github.com/dicefm/revel"
+	"github.com/dicefm/revel/samples/booking/app/models"
+	"github.com/dicefm/revel/samples/booking/app/routes"
 	"strings"
 )
 

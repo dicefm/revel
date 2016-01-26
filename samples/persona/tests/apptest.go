@@ -5,7 +5,7 @@ import (
 	"net/url"
 	"time"
 
-	"github.com/revel/revel"
+	"github.com/dicefm/revel"
 )
 
 var personaTestUsers map[string]PersonaTestUser

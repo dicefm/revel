@@ -1,7 +1,7 @@
 package controllers
 
 import (
-	"github.com/revel/revel"
+	"github.com/dicefm/revel"
 )
 
 type Application struct {

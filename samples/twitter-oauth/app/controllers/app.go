@@ -3,8 +3,8 @@ package controllers
 import (
 	"encoding/json"
 	"github.com/mrjones/oauth"
-	"github.com/revel/revel"
-	"github.com/revel/revel/samples/twitter-oauth/app/models"
+	"github.com/dicefm/revel"
+	"github.com/dicefm/revel/samples/twitter-oauth/app/models"
 	"io/ioutil"
 )
 

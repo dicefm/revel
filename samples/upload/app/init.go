@@ -3,7 +3,7 @@ package app
 import (
 	"errors"
 
-	"github.com/revel/revel"
+	"github.com/dicefm/revel"
 )
 
 func init() {

@@ -1,8 +1,8 @@
 package controllers
 
 import (
-	"github.com/revel/revel"
-	"github.com/revel/revel/samples/validation/app/models"
+	"github.com/dicefm/revel"
+	"github.com/dicefm/revel/samples/validation/app/models"
 )
 
 type Sample3 struct {

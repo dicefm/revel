@@ -1,6 +1,6 @@
 package models
 
-import "github.com/revel/revel"
+import "github.com/dicefm/revel"
 
 type User struct {
 	Username        string

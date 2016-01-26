@@ -1,9 +1,9 @@
 package controllers
 
 import (
-	"github.com/revel/revel/samples/upload/app/routes"
+	"github.com/dicefm/revel/samples/upload/app/routes"
 
-	"github.com/revel/revel"
+	"github.com/dicefm/revel"
 )
 
 type Multiple struct {

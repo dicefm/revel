@@ -7,9 +7,9 @@ import (
 	_ "image/jpeg"
 	_ "image/png"
 
-	"github.com/revel/revel/samples/upload/app/routes"
+	"github.com/dicefm/revel/samples/upload/app/routes"
 
-	"github.com/revel/revel"
+	"github.com/dicefm/revel"
 )
 
 const (

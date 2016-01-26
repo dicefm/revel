@@ -9,7 +9,7 @@ import (
 	"reflect"
 	"strings"
 
-	"github.com/revel/revel"
+	"github.com/dicefm/revel"
 )
 
 type TestRunner struct {

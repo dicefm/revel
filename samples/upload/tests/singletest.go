@@ -4,7 +4,7 @@ import (
 	"net/url"
 	"path"
 
-	"github.com/revel/revel"
+	"github.com/dicefm/revel"
 )
 
 // SingleTest is a test suite of Multiple controller.

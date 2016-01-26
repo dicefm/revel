@@ -9,7 +9,7 @@ import (
 	"math"
 	"net/url"
 
-	"github.com/revel/revel"
+	"github.com/dicefm/revel"
 )
 
 // allowMethods are HTTP methods that do NOT require a token
