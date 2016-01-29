@@ -1,8 +1,8 @@
 package revel
 
 import (
-	"golang.org/x/net/websocket"
 	"fmt"
+	"golang.org/x/net/websocket"
 	"io"
 	"net"
 	"net/http"
