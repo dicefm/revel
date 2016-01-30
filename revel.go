@@ -119,18 +119,16 @@ func Init(mode, importPath, srcPath string) {
 	}
 
 	// If the SourcePath is not specified, find it using build.Import.
-	var revelSourcePath string // may be different from the app source path
 	if SourcePath == "" {
-		revelSourcePath, SourcePath = findSrcPaths(importPath)
+		RevelPath, BasePath = findSrcPaths(importPath)
 	} else {
 		// If the SourcePath was specified, assume both Revel and the app are within it.
 		SourcePath = path.Clean(SourcePath)
-		revelSourcePath = SourcePath
+		RevelPath = path.Join(SourcePath, filepath.FromSlash(REVEL_IMPORT_PATH))
+		BasePath = path.Join(SourcePath, filepath.FromSlash(importPath))
 		packaged = true
 	}
 
-	RevelPath = revelSourcePath
-	BasePath = SourcePath
 	AppPath = path.Join(BasePath, "app")
 	ViewsPath = path.Join(AppPath, "views")
 
