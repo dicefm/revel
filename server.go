@@ -117,7 +117,10 @@ func Run(port int) {
 		if err != nil {
 			ERROR.Fatalln("Failed to listen:", err)
 		}
-		ERROR.Fatalln("Failed to serve:", Server.Serve(listener))
+		err = Server.Serve(listener)
+		if err != http.ErrServerClosed {
+			ERROR.Println("Failed to serve:", Server.Serve(listener))
+		}
 	}
 }
 
